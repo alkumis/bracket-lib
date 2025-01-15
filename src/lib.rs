@@ -5,6 +5,7 @@
 /// prelude
 pub mod prelude {
     pub use bracket_algorithm_traits::prelude::*;
+    pub use bracket_bevy::prelude::*;
     pub use bracket_color::prelude::*;
     pub use bracket_geometry::prelude::*;
     pub use bracket_noise::prelude::*;
@@ -51,4 +52,8 @@ pub mod random {
 /// optional tile graphic support and layers), and a game loop
 pub mod terminal {
     pub use bracket_terminal::prelude::*;
+}
+
+pub mod bevy {
+    pub use bracket_bevy::prelude::*;
 }
