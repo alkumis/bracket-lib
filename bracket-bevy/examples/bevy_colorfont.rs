@@ -8,8 +8,8 @@ fn main() {
 
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_plugins(bracket)
-        .add_systems(Update, tick)
+        .add_plugin(bracket)
+        .add_system(tick)
         .run();
 }
 

@@ -87,24 +87,24 @@ fn main() {
 
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_plugins(bterm)
-        .add_systems(Startup, setup)
-        .add_systems(Update, tick)
+        .add_plugin(bterm)
+        .add_startup_system(setup)
+        .add_system(tick)
         .run();
 }
 
-fn tick(ctx: Res<BracketContext>, mut state: ResMut<State>, keyboard: Res<ButtonInput<KeyCode>>) {
+fn tick(ctx: Res<BracketContext>, mut state: ResMut<State>, keyboard: Res<Input<KeyCode>>) {
     let mut draw_batch = ctx.new_draw_batch();
-    if keyboard.just_pressed(KeyCode::ArrowLeft) {
+    if keyboard.just_pressed(KeyCode::Left) {
         state.move_player(-1, 0)
     }
-    if keyboard.just_pressed(KeyCode::ArrowRight) {
+    if keyboard.just_pressed(KeyCode::Right) {
         state.move_player(1, 0)
     }
-    if keyboard.just_pressed(KeyCode::ArrowUp) {
+    if keyboard.just_pressed(KeyCode::Up) {
         state.move_player(0, -1)
     }
-    if keyboard.just_pressed(KeyCode::ArrowDown) {
+    if keyboard.just_pressed(KeyCode::Down) {
         state.move_player(0, 1)
     }
 

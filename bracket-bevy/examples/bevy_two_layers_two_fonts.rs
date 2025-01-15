@@ -12,9 +12,9 @@ fn main() {
 
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_plugins(bterm)
+        .add_plugin(bterm)
         .insert_resource(Bouncer(0))
-        .add_systems(Update, tick)
+        .add_system(tick)
         .run();
 }
 

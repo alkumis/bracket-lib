@@ -9,8 +9,8 @@ fn main() {
 
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_plugins(bterm)
-        .add_systems(Update, tick)
+        .add_plugin(bterm)
+        .add_system(tick)
         .run();
 }
 

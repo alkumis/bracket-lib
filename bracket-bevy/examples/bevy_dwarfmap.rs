@@ -6,8 +6,8 @@ use bracket_pathfinding::prelude::*;
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_plugins(BTermBuilder::simple_80x50())
-        .add_systems(Update, tick)
+        .add_plugin(BTermBuilder::simple_80x50())
+        .add_system(tick)
         .run();
 }
 
@@ -196,7 +196,7 @@ impl Algorithm3D for State {
     }
 }
 
-fn tick(ctx: Res<BracketContext>, mut state: Local<State>, mouse: Res<ButtonInput<MouseButton>>) {
+fn tick(ctx: Res<BracketContext>, mut state: Local<State>, mouse: Res<Input<MouseButton>>) {
     // Clear the screen
     ctx.cls();
 
